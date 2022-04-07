@@ -1,0 +1,29 @@
+
+.Overall {
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    position: relative;
+}
+
+.Category {
+    position:absolute;
+    width: 18.6875rem;
+    height: 4.25rem;
+    left: calc(50% - 299px/2 - 469.5px);
+    top: calc(50% - 68px/2 -562.5px);
+    font-family: Raleway;
+    font-weight: 400;
+    font-size: 2.625rem;
+    line-height: 160%;
+    text-align: center;
+}
+
+.Products {
+    display:flex;
+}
+
+.Link {
+    width: 24.125rem;
+    height: 27.75rem;
+}
