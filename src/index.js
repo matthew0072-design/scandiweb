@@ -1,17 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter} from 'react-router-dom';
-import {ApolloProvider} from '@apollo/client'
-import client from './client/client'
+import {ApolloProvider} from '@apollo/client';
+import {Provider} from 'react-redux';
+import store from '../src/Store/store';
+import {client} from './client/client';
 
 import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
+
+    <Provider store={store}>
     <ApolloProvider client={client}>
     <App />
     </ApolloProvider>
+    </Provider>
+     
     </BrowserRouter>
     
   </React.StrictMode>,

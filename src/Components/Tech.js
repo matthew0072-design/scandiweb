@@ -1,8 +1,14 @@
 import {Component} from "react";
 import {Query} from '@apollo/react-components';
-import Header from '../Layouts/Headers'
+import Header from '../Layouts/Headers';
+import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
 
-
+const mapStateToProps = state => {
+    return {
+        value: state.value
+    }
+}
 class Tech extends Component {
 
 
@@ -19,18 +25,21 @@ class Tech extends Component {
         
         return (
           <div>
-                {data.category.products.map(product => (
+                {data.category.products.map(product => {
                     
-                        <div key={product.id}>
+                       return (<div key={product.id}>
+                        <Link to={`/${product.id}`} >
                             <img src={product.gallery[0]} alt={product.name} />
                             <p>{product.name}</p>
-                            <p><span>{product.prices[0].currency.symbol}</span>{product.prices[0].amount}</p>
+                            {product.prices.map((price,index) => {
+                                if(price.currency.symbol === this.props.value) {
+                                  return  <p key={index}><span>{price.currency.symbol}</span>{price.amount}</p>
+                                } return ""
+                            })}
                             
+                        </Link>
                         </div>
-                    )
-                    
-                        
-                    )}
+                    )})}
             
 
           </div>
@@ -45,4 +54,4 @@ class Tech extends Component {
 }
 
 
-export default Tech
+export default connect(mapStateToProps)(Tech)

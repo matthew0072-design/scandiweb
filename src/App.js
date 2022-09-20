@@ -11,6 +11,7 @@ import {
   
   Routes,
   Route,
+  
 } from "react-router-dom";
 import './app.css'
 
@@ -25,7 +26,7 @@ class App extends Component {
                 name,
                 id,
                 gallery,
-                prices {
+                prices{
                   amount,
                   currency{
                     symbol
@@ -45,19 +46,27 @@ class App extends Component {
       product(id:$id){
         id,
         name,
-        description
+        gallery,
+        brand,
         
+        prices{
+          amount,
+          currency {
+            symbol
+          }
+        }
       }
     }
     `;
-          
+     
+    
+
     return (
       <div className="">
         <Routes>
         
         <Route path="/" element={<Home CATEGORIES={CATEGORIES} variables={{"input":{"title":"all"}}}/>}/>
           <Route path=":id" element={<Product PRODUCTS={PRODUCTS} variables={{"id":"id"}}  />} />
-        
         
         <Route path="cloth" element={<Clothes CATEGORIES={CATEGORIES} variables={{"input":{"title":"clothes"}}}/>}/>
       

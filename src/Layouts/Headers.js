@@ -4,19 +4,45 @@ import Icon from '../Assets/Images/a-logo.png';
 import Cart from '../Assets/Images/Empty Cart.png'
 import {Query} from "@apollo/react-components"
 import {gql} from '@apollo/client';
-import Styles from '../Assets/Styles/Header.module.scss'
+import Styles from '../Assets/Styles/Header.module.scss';
+import {connect} from 'react-redux';
+import {changeValue} from '../Store/Actions/selectActions';
+
+
+function mapDispatchToProps(dispatch) {
+    return {
+
+        changeValue: value => dispatch(changeValue(value))
+    }
+}
+
+const mapStateToProps = state => {
+    return {
+        value: state.selects.value,
+        carts:state.cartItem.numberCart
+    }
+}
+
+
 
 class Header extends Component {
+
+
  render() {
-        const GETCURRENCIES = gql`
-        query allcurrency{
-            currencies{
+
+    
+        const GET_CURRENCIES = gql`
+        query allcurrency {
+
+            currencies {
               label,
               symbol
             }
+            
           }
         `;
 
+        
         return (
             <div className={Styles.container}>
             <nav>
@@ -28,45 +54,46 @@ class Header extends Component {
             </nav>
             <div>
                 <figure>
+                    <Link to="/">
                     <img src={Icon} alt="icon" />
+                    </Link>
                 </figure>
             </div>
             <div className={Styles.dropdown}>
             <section>
                 
-                <Query query={GETCURRENCIES} >
+                <Query query={GET_CURRENCIES} >
         {({ loading, error, data }) => {
         if (loading) return "Loading...";
         if (error) return `Error!! ${error.message}`;
         
        
         return (
-        
-                    <select>
-                     <option value={data.currencies[0].label}>{data.currencies[0].symbol}  {data.currencies[0].label}</option>
-                     <option value={data.currencies[1].label}>{data.currencies[1].symbol} {data.currencies[1].label}</option>
-                     <option value={data.currencies[2].label}>{data.currencies[2].symbol} {data.currencies[2].label}</option>
-                     <option value={data.currencies[3].label}>{data.currencies[3].symbol} {data.currencies[3].label}</option>
-                     <option value={data.currencies[4].label}>{data.currencies[4].symbol} {data.currencies[4].label}</option>
-                 </select>
-                    
+        <select  value={this.props.value}  onChange={(e) => this.props.changeValue(e.target.value)}>
+                {data.currencies.map(option => (
+                    <option value={option.symbol} key={option.label}>{option.symbol} </option>
+                ))}
+        </select>
+                
                     
         );
       }}
         </Query>
+       
 
             </section>
             <div>
             <Link to="/cart">
                 <figure className={Styles.img}>
-                    <img src={Cart} alt="cart"/>
-                </figure>
+                    <span><img src={Cart} alt="cart"/> cart:{this.props.carts}</span> 
+                    
+                </figure> 
                 </Link>
             </div>
             </div>
-            </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </div>
         );
     }
 }
 
-export default Header;
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

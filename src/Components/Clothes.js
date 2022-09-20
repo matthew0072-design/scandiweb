@@ -1,7 +1,16 @@
 import {Component} from "react";
 import {Query} from '@apollo/react-components';
 import Header from '../Layouts/Headers'
+import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
 
+
+
+const mapStateToProps = state => {
+    return {
+        value: state.value
+    }
+};
 
 class Clothes extends Component {
 
@@ -19,22 +28,25 @@ class Clothes extends Component {
         if (loading) return "Loading...";
         if (error) return `Error!! ${error.message}`;
        
-            const overall = data.category.products[0].prices[0].currency.symbol
-            console.log(overall)
+            
 
       return (
           <div>
-                 {data.category.products.map(product => (
-                     <div key={product.id}>
+                 {data.category.products.map(product => {
+                     
+                     return(<div key={product.id}>
+                         <Link to={`/${product.id}`} >
                             <img src={product.gallery[1]} alt={product.name} />
                             <p>{product.name}</p>
+                            {product.prices.map((price,index) => {
+                                if(price.currency.symbol === this.props.value){
+                                return <p key={index}><span>{price.currency.symbol}</span>{price.amount}</p>
+                                } return ""
+                            })}
                             
-                            <p><span>{product.prices[0].currency.symbol}</span>{product.prices[0].amount}</p>
-                        </div>
-                    
-                    
-                        
-                 ))}
+                            </Link>
+                        </div>)}
+                 )}
             
           </div>
         );
@@ -48,4 +60,4 @@ class Clothes extends Component {
 }
 
 
-export default Clothes
+export default connect(mapStateToProps)(Clothes)

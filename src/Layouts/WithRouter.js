@@ -1,5 +1,4 @@
 import {
-
     useNavigate,
     useParams,
   } from "react-router-dom";
@@ -12,7 +11,7 @@ import {
       return (
         <Component
           {...props}
-          router={{ navigate, params }}
+          router={{params, navigate}}
         />
       );
     }
