@@ -4,81 +4,84 @@ import {Query} from '@apollo/react-components';
 import withRouter from '../Layouts/WithRouter';
 import {connect} from 'react-redux';
 import {addToCart} from '../Store/Actions/cartActions'
-
-
-
+import Styles from '../Assets/Styles/Product.module.css'
+import Spinner from "./Overlay/Spinner"
+import 'animate.css' 
 
 class Product extends Component {
 
 
-// handleClick =(products) => {
-                                                                                                                                                                                                                         //     this.props.addToCart(products)
-//     console.log(products)
-// }
-
 
     state = {
-        price: ""
+        price: "",
+        imageIndex: 0,
     }
+
+handleImageIndex = (index) => {
+        this.setState({imageIndex: index})
+} 
 
     handleAmount = (amount) => {
         
         this.setState({price: amount })
-        console.log(amount)
+        
     }
 
-//  handleClick = () => {
-//     const item = {
-//         id: data.product.id,
-//         name: data.product.name,
-//         brand: data.product.brand,
-//         gallery: data.product.gallery,
-//         price: this.state.price
-//     }
-//     this.props.carts(this.setState({item}))
-// }
-        
 
+    
 
-    render(){
+    render() {
        let priceAmount;
+       
          return (
             <div>
                 <Header />
                 
                 <Query query={this.props.PRODUCTS} variables={{"id":this.props.router.params.id}}>
         {({ loading, error, data }) => {
-        if (loading) return "Loading...";
+        if (loading) return <Spinner/>;
         if (error) return `Error!! ${error.message}`;                                                                                                                                                                      
         
         return (
+           
           
-                        <div>
-                            <div>
-                                <img src={data.product.gallery[0]} alt={data.product.name} />
-                                <img src={data.product.gallery[1]} alt={data.product.name} />
-                                <img src={data.product.gallery[2]} alt={data.product.name} />
-                                <img src={data.product.gallery[3]} alt={data.product.name} />
-                                <img src={data.product.gallery[4]} alt={data.product.name} />
+                        <div className={Styles.overall}>
+                            
+                            <div className={Styles.imageGallery}>
+                                {data.product.gallery.map((productItem, index) => { 
+                                
+                               return(
+                                    
+                                        <img src={productItem} key={index} alt={productItem.name} className={Styles.image} onClick={() => this.handleImageIndex(index)}/>
+                                    
+                                )}
+                                )}
+                                
                             </div>
-                            <p>{data.product.name}</p>
-                            <div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
-                                <button>XS</button>
-                                <button>S</button>                           
-                                <button>M</button>
-                                <button>L</button>
+                                    <section >
+                                    </section>
+                            <div className={Styles.productDetails}>
+                            <p className={Styles.productName}>{data.product.name}</p>
+                            <p className={Styles.productBrand}>{data.product.brand}</p>
+                            <p className={Styles.size}>Size:</p>
+                            <div className={Styles.sizeContainer}>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+                                <button className={Styles.sizeButton}>XS</button>
+                                <button className={[Styles.sizeButton,Styles.sizeBlackButton].join(" ")}>S</button>                           
+                                <button className={Styles.sizeButton}>M</button>
+                                <button className={Styles.sizeButton}>L</button>
                             </div>
-                            <section>
-                                <div></div>
-                                <div></div>
-                                <div></div>
+                            <p className={Styles.color}>COLOR:</p>
+                            <section className={Styles.colorContainer}>
+                                <div className={Styles.colorDiv1}></div>
+                                <div className={Styles.colorDiv2}></div>
+                                <div className={Styles.colorDiv3}></div>
                             </section>
                             
                             {data.product.prices.map((price, index) => {
                                  if(price.currency.symbol === this.props.value) {
                                             priceAmount = price.amount;
-                                            console.log(priceAmount)                         
-                                    return <p key={index} >PRICE:<span>{price.currency.symbol}</span>{price.amount}</p>
+                                                                   
+                                    return <p key={index} className={Styles.color}>PRICE:<span className={Styles.spanPrice}>{price.currency.symbol}{price.amount}</span></p>
                                  } return ""
                             })}
 
@@ -89,10 +92,12 @@ class Product extends Component {
                             gallery: data.product.gallery,
                             prices: priceAmount
                             
-                            })}>ADD TO CART</button>
-                         {/* <p>{data.product.description.replace( /(<([^>]+)>)/ig, '')}</p> */}
-                         <p>{data.product.description}</p>
-                           
+                            })} className={Styles.cartButton}>ADD TO CART</button>
+                          <p className={Styles.description}>{data.product.description.replace( /(<([^>]+)>)/ig, '')}</p> 
+                        
+                        
+                         </div>
+                         
                         </div>
                     )
             

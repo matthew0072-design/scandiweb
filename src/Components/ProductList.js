@@ -1,9 +1,9 @@
 import {Component} from "react";
 import {Query} from '@apollo/react-components';
 import {Link, Outlet} from 'react-router-dom';
-import Styles from '../Assets/Styles/Home.module.scss';
+import Styles from '../Assets/Styles/ProductList.module.css';
 import {connect} from "react-redux";
-
+import Spinner from "../Components/Overlay/Spinner"
 
 
 const mapStateToProps = state => {
@@ -18,37 +18,33 @@ class Dollars extends Component {
     render() {
         
         return (
-            <div className={Styles.Overall}>
+            <div >
                 
                 <Query query={this.props.CATEGORIES} variables={this.props.variables}>
         {({ loading, error, data }) => {
-        if (loading) return "Loading...";
+         if (loading) return <Spinner/>;
         if (error) return `Error!! ${error.message}`;
         
-        return (
-          <div className={Styles.Products}>
+                  return (
+          <div  className={Styles.Overall}>
                 {data.category.products.map(product => {
                     
-                 return (<div key={product.id}>
+                 return (<div key={product.id} className={Styles.productCard}>
                     <Link to={`/${product.id}`} className={Styles.Link} >
-                         <img src={product.gallery[0]} alt={product.name} />
-                         <p>{product.name}</p>
+                         <img src={product.gallery[0]} alt={product.name} className={Styles.productImage} />
+                         <p className={Styles.productName}>{product.name}</p>
                         {product.prices.map((price,index) => {
-                            console.log(this.props.value)
+                            
                             if(price.currency.symbol === this.props.value){
                                 
-                               return  <p key={index}><span>{price.currency.symbol}</span>{price.amount}</p>
+                               return  <p key={index} className={Styles.productPrice}><span>{price.currency.symbol}</span>{price.amount}</p>
                              } return""
                                 
                              
                       })}
 
                          
-                    {/* {product.prices.map((price,index) => {
-                        if(price.currency.symbol === this.props.value){
-                       return <p key={index}><span>{price.currency.symbol}</span>{price.amount}</p>
-                    } return ""
-                    })} */}
+                   
 
                      </Link>
                  </div>)

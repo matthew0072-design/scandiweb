@@ -7,7 +7,7 @@ const BtnSlider = ({click, direction}) => {
   
   
     return (
-      <button onClick={click}
+      <button  onClick={click}
         
         className={direction === "next" ? "btn-slide next" : "btn-slide prev"}
       >

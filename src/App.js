@@ -48,6 +48,7 @@ class App extends Component {
         name,
         gallery,
         brand,
+        description,
         
         prices{
           amount,

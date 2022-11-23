@@ -1,0 +1,558 @@
+.overlay__background {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  z-index: 9;
+}
+
+.overlay__container {
+  background-color:white;
+  position: relative;
+  top: 10%;
+  bottom: 0;
+  z-index: 10;
+  width: fit-content;
+  height: fit-content;
+}
+
+
+ 
+ .OverlayCart {
+  
+  position:absolute;
+  display: flex;
+flex-direction: column;
+left: -20rem;
+padding: 32px 16px;
+gap: 32px;
+width: 20.3125rem;
+height: auto;
+background: #FFFFFF;
+
+}  
+
+.ProductName {
+  width: 8.5rem;
+  height: 11.875rem;
+  font-family: "Raleway";
+  font-weight:400;
+  font-size: 0.875rem;
+  line-height: 1rem;
+}
+
+.BagItem {
+  font-family: 'Raleway';
+font-style: normal;
+font-weight: 700;
+font-size: 1rem;
+line-height: 160%;
+
+
+text-align: center;
+
+color: #1D1F22;
+
+}
+
+.Item {
+  display:flex;
+  gap: 0px 10px; 
+  width: 18.3125rem;
+  height:11.875rem;
+  
+  
+}
+
+
+.ProductImage {
+  /* margin-left:20px; */
+  width: 7.5625rem;
+height: 11.875rem;
+
+}
+
+.Total {
+  width: 18.0625rem;
+  height: 1.75rem;
+  font-family: 'Raleway';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 160%;
+}
+ 
+.OverlayPrice {
+  font-weight: 500;
+font-size: 1rem;
+line-height: 160%;
+
+color: #1D1F22;
+
+}
+
+.OverlayName {
+  font-weight: 300;
+font-size: 1rem;
+line-height: 160%;
+
+color: #1D1F22;
+}
+
+.OverlaySize{
+  font-family: 'Raleway';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 1rem;
+margin: 8px 0px;
+
+
+}
+
+.OverlaySizeContainer {
+  height: 1.5rem;
+  display:flex;
+  gap: 5px;
+  justify-content: space-around;
+  margin: 8px 0;
+}
+
+
+.OverlaySizeButton {
+  
+  border:1px solid #1D1F22;
+  font-family: "Source Sans Pro";
+  font-size:0.875rem;
+  line-height: 1.4rem;
+  background:#ffffff;
+  text-align:center;
+  height:1.5rem;
+  width:1.5rem;
+  color: #1D1F22;
+}
+.OverlaySizeBlackButton {
+  background: #1D1F22;
+  color: #FFFFFF;
+}
+.OverlayColorContainer {
+  display: flex;
+  gap: 5px;
+  margin: 8px 0;
+  
+}
+
+
+.OverlayColorDiv3 {
+  width: 1rem;
+  height: 1rem;
+  background: #0F6450;
+  }
+  
+  .OverlayColorDiv2 {
+      width: 1rem;
+      height: 1rem;
+      background: #2B2B2B;
+      }
+  
+      .OverlayColorDiv1 {
+          width: 1.25rem;
+          height: 1.25rem;
+          background: #D3D2D5;
+          border: 1px solid #5ECE7B;
+          }
+
+
+          .CartNumber {
+            display: flex;
+            
+            flex-direction: column;
+            justify-content: space-between;
+            width:1.5rem;
+            height:11.875rem;
+          }
+
+          .ButtonPlus {
+            box-sizing: border-box;
+
+width: 1.5rem;
+height: 1.5rem;
+background:#FFFFFF;
+border: 1px solid #1D1F22;
+          }
+
+          .ButtonPlusNumber {
+            font-family: 'Raleway';
+font-style: normal;
+font-weight: 500;
+font-size: 1rem;
+line-height: 160%;
+color: #1D1F22;
+
+          }
+
+          .CheckOut {
+            display: flex;
+            gap: 12px;
+            padding: 0px;
+            width: 18.25rem;
+            height: 2.6875rem;
+          }
+
+          .ViewBag {
+            width: 8.75rem;
+            height: inherit;
+            font-family: 'Raleway';
+font-style: normal;
+font-weight: 600;
+font-size: 0.875rem;
+line-height: 120%;
+text-align: center;
+text-transform: uppercase;
+background: transparent;
+color: #1D1F22;
+          }
+
+          .CheckOutButton{
+            width:8.75rem;
+            height:inherit;
+            font-family: 'Raleway';
+font-style: normal;
+font-weight: 600;
+font-size: 0.875rem;
+line-height: 120%;
+border:none;
+text-align: center;
+text-transform: uppercase;
+background: #5ECE7B;
+color: #FFFFFF;
+          }
+          .TotalContainer {
+            display:flex;
+            justify-content: space-between;
+            width: 18.0625rem;
+            height: 1.75rem;
+          }
+
+          .TotalParagraph {
+            font-family: 'Roboto';
+font-style: normal;
+font-weight: 500;
+font-size: 1rem;
+line-height: 1.25rem;
+color: #1D1F22;
+
+          }
+
+          .TotalParagraphPrice {
+            font-family: 'Raleway';
+font-style: normal;
+font-weight: 700;
+font-size: 1rem;
+line-height: 160%;
+
+color: #1D1F22;
+
+          }
+
+.ViewBag:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+          .CheckOutButton:hover {
+            cursor:pointer;
+            opacity: 0.9;
+          }
+
+
+@media only screen and (max-width : 767px) {
+ 
+    .overlay__background {
+      background-color: rgba(0, 0, 0, 0.5);
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      cursor: pointer;
+      z-index: 9;
+    }
+    
+    .overlay__container {
+      background-color:white;
+      position: relative;
+      top: 10%;
+      
+      bottom: 0;
+      
+       margin-left: 40px;
+      z-index: 10;
+     border: 1px solid red; 
+      width: auto;
+      height: fit-content;
+    }
+    
+  
+    .OverlayCart {
+  
+      position: absolute;
+      display: flex;
+    flex-direction: column;
+    margin-left: 2.5rem;
+    
+     
+    /* padding: 16px 4px; */
+    /* gap: 8px; */
+    width: 16rem; 
+    height: auto;
+    background: #FFFFFF
+    
+    }  
+    .BagItem {
+      font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 0.875rem;
+    line-height: 120%;
+    
+    
+    text-align: center;
+    
+    color: #1D1F22;
+    
+    }
+          
+.Item {
+  display:flex;
+  /* gap: 0px 10px;  */
+  width: 100%;
+  padding: 5px;
+  height: 8rem;
+  
+  
+}
+ 
+.ProductName {
+  width: 8.5rem;
+  height: 8.5rem;
+
+  
+  font-family: "Raleway";
+  font-weight:400;
+  font-size: 0.875rem;
+  line-height: 1rem;
+}
+
+.OverlayName {
+  font-weight: 500;
+font-size: 0.75rem;
+line-height: 100%;
+padding: 5px 0;
+color: #1D1F22;
+}
+
+ 
+.OverlayPrice {
+  font-weight: 600;
+font-size: 0.875rem;
+line-height: 100%;
+
+color: #1D1F22;
+
+}
+
+
+.OverlaySize{
+  font-family: 'Raleway';
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 100%;
+margin: 4px 0px;
+
+
+}
+
+.OverlaySizeContainer {
+  height: 1rem;
+  display:flex;
+  gap: 5px;
+  justify-content: flex-start;
+  margin: 4px 0;
+}
+
+
+.OverlaySizeButton {
+  
+  border:1px solid #1D1F22;
+  font-family: "Source Sans Pro";
+  font-size:0.75rem;
+  line-height: 1rem;
+  background: transparent;
+  text-align:center;
+  height:1rem;
+  width:1rem;
+  color: #1D1F22;
+}
+.OverlaySizeBlackButton {
+  background: #1D1F22;
+  color: #FFFFFF;
+}
+
+.OverlayColorContainer {
+  display: flex;
+  gap: 3px;
+  margin: 4px 0;
+  
+}
+
+
+.OverlayColorDiv3 {
+  width: 0.75rem;
+  height: 0.75rem;
+  background: #0F6450;
+  }
+  
+  .OverlayColorDiv2 {
+      width: .75rem;
+      height: .75rem;
+      background: #2B2B2B;
+      }
+  
+      .OverlayColorDiv1 {
+          width: 1rem;
+          height: 1rem;
+          background: #D3D2D5;
+          border: 1px solid #5ECE7B;
+          }
+
+
+
+          .CartNumber {
+            display: flex;
+            
+            flex-direction: column;
+            justify-content: space-between;
+            width:1rem;
+            height:8.5rem;
+          }
+
+          .ButtonPlus {
+            box-sizing: border-box;
+
+width: 1rem;
+height: 1rem;
+background:#FFFFFF;
+border: 1px solid #1D1F22;
+          }
+
+          .ButtonPlusNumber {
+            font-family: 'Raleway';
+font-style: normal;
+font-weight: 500;
+font-size: 0.875rem;
+line-height: 100%;
+color: #1D1F22;
+
+          }
+
+
+          .ProductImage {
+            background: transparent;
+            width: 6rem;
+          height: 8.5rem;
+        
+          }
+          
+          .Total {
+            width: auto;
+            height: 1.5rem;
+            font-family: 'Raleway';
+          font-style: normal;
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 100%;
+          }
+           
+          .TotalContainer {
+            display:flex;
+            justify-content: space-between;
+            width: auto;
+            height: 1.5rem;
+          }
+
+          .TotalParagraph {
+            font-family: 'Roboto';
+font-style: normal;
+font-weight: 700;
+font-size: 0.875rem;
+line-height: 1.25rem;
+color: #1D1F22;
+
+          }
+
+          .TotalParagraphPrice {
+            font-family: 'Raleway';
+font-style: normal;
+font-weight: 700;
+font-size: 0.875rem;
+line-height: 100%;
+
+color: #1D1F22;
+
+          }
+
+          .CheckOut {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            padding: 0px;
+            width: auto;
+            height: 2rem;
+          }
+
+          .ViewBag {
+            width: auto;
+            height: inherit;
+            font-family: 'Raleway';
+            padding:10px;
+font-style: normal;
+font-weight: 600;
+font-size: 0.75rem;
+line-height: 100%;
+text-align: center;
+text-transform: uppercase;
+background: transparent;
+color: #1D1F22;
+          }
+
+          .CheckOutButton{
+            width:auto;
+            height:inherit;
+            font-family: 'Raleway';
+font-style: normal;
+font-weight: 600;
+font-size: 0.75rem;
+line-height: 100%;
+padding:10px;
+border:none;
+text-align: center;
+text-transform: uppercase;
+background: #5ECE7B;
+color: #FFFFFF;
+          }
+
+          .ViewBag:hover {
+            cursor: pointer;
+            opacity: 0.9;
+          }
+          
+                    .CheckOutButton:hover {
+                      cursor:pointer;
+                      opacity: 0.9;
+                    }
+}

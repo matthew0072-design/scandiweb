@@ -3,7 +3,8 @@ import {ADD_TO_CART, NUMBER_CART, SUB_QUANTITY} from '../constant'
 const initialState = {
     carts: [],
     total: 0,
-    numberCart: 0
+    numberCart: 0,
+    slideIndex: 0,
 }
 
 
@@ -14,7 +15,7 @@ const cartReducer= (state = initialState, action) => {
             case ADD_TO_CART:
 
  
-                 if                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           (state.numberCart === 0) {
+                 if  (state.numberCart === 0) {
                
                    
                  let cart = {
@@ -28,7 +29,8 @@ const cartReducer= (state = initialState, action) => {
                    
                 }
             state.carts.push(cart); 
-
+            
+            
                  }
         
         else {
@@ -38,6 +40,8 @@ const cartReducer= (state = initialState, action) => {
              
                if (item.id === action.payload.id) {
                    state.carts[key].quantity++;
+                   
+  
                     check = true;
                 
                } return "";}); 
@@ -54,6 +58,8 @@ const cartReducer= (state = initialState, action) => {
                     
                 }
                 state.carts.push(_cart);
+                
+  
             }
         }
 
@@ -69,13 +75,13 @@ const cartReducer= (state = initialState, action) => {
                 ...state,
             }
 
-        
-
+            
             case SUB_QUANTITY:
                 
                 const quantityIndex = state.carts.findIndex(cart => cart.id === action.payload.id)
                 
                 
+
                 if(state.carts[quantityIndex].quantity === 1) {
                     
                        state.carts[quantityIndex].quantity = 1
@@ -88,6 +94,7 @@ const cartReducer= (state = initialState, action) => {
                     ...state,
                     
                 }
+
                 
 
         default:

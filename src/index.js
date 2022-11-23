@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter} from 'react-router-dom';
 import {ApolloProvider} from '@apollo/client';
 import {Provider} from 'react-redux';
-import store from '../src/Store/store';
+import {store, persistor} from '../src/Store/store';
 import {client} from './client/client';
-
+import { PersistGate } from 'redux-persist/lib/integration/react';
 import App from './App';
 
 ReactDOM.render(
@@ -13,9 +13,11 @@ ReactDOM.render(
     <BrowserRouter>
 
     <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor} >
     <ApolloProvider client={client}>
     <App />
     </ApolloProvider>
+    </PersistGate>
     </Provider>
      
     </BrowserRouter>

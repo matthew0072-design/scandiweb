@@ -1,0 +1,184 @@
+.Overall {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content:space-around;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    gap:5px;
+    margin-top: 20px;
+    
+}
+
+.productCard {
+    
+    display:flex;
+    margin-top:5rem;
+    width: 24.125rem;
+    height: 27.75rem;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.productImage {
+    object-fit: contain;
+    width:22.125rem;
+    height:20.625rem;
+    
+    margin-top: 16px;
+    margin-left:16px;
+        
+}
+
+.Link {
+   text-decoration: none;
+}
+
+.productName {
+    font-family: Raleway;
+    font-weight: 300;
+    line-height: 160%;
+    font-size: 1.125rem;
+    color:#1D1F22;
+    margin-left: 16px;
+    
+
+}
+
+.productPrice {
+    font-family: Raleway;
+    font-weight: 500;
+    line-height: 160%;
+    font-size: 1.125rem;
+    color:#1D1F22;
+    margin-left: 16px;
+}
+
+
+@media only screen and (max-width: 1023px) {
+    .Overall {
+        display:flex;
+        flex-wrap: wrap;
+        
+        justify-content:flex-start;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        gap:10px;
+        margin-top: 1.5rem;
+        margin-left:1rem;      
+        margin-right: 1rem;
+   }
+   
+   
+   .productCard {
+
+    display:flex;
+    margin-top:2rem;
+    width: auto;
+    height: auto;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+
+    align-items: flex-start;
+   flex-direction: column;
+    justify-content:flex-start; 
+}
+
+.productImage {
+    object-fit: contain;
+    width: 10rem;
+    height: 10rem;
+    margin-top:5px;
+       
+}
+
+
+.productName {
+    font-family: Raleway;
+    font-weight: 500;
+    line-height: 120%;
+    font-size: 0.875rem;
+    color:#1D1F22;
+    margin-left: 16px;
+    
+
+}
+
+
+.productPrice {
+    font-family: Raleway;
+    font-weight: 500;
+    line-height: 120%;
+    font-size: 1rem;
+    color:#1D1F22;
+    margin-left: 16px;
+    padding: 5px 0;
+}
+
+}
+
+
+
+
+@media only screen and (max-width: 767px) {
+    .Overall {
+        display:flex;
+        flex-wrap: wrap;
+        
+        justify-content:center;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        gap:0 5px;
+        margin-top: 0;
+        
+    }
+    .productCard {
+        
+        display:flex;
+        margin-top:2rem;
+        width: auto;
+        height: 14rem;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        flex-direction: column;
+        align-items: center;
+        justify-content:center;
+    }
+    .productImage {
+        object-fit: contain;
+        width: 15rem;
+        height: 10rem;
+        margin-top:5px;
+           
+    }
+    
+.Link {
+    text-decoration: none;
+ }
+ 
+      .productName {
+     font-family: Raleway;
+     font-weight: 600;
+     line-height: 120%;
+     font-size: 1rem;
+     color:#1D1F22;
+     margin-left: 16px;
+     
+ 
+ }
+ 
+ .productPrice {
+     font-family: Raleway;
+     font-weight: 500;
+     line-height: 120%;
+     font-size: 1rem;
+     color:#1D1F22;
+     margin-left: 16px;
+     padding: 5px 0;
+ }
+ 
+          
+}

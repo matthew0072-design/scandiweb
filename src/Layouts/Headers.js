@@ -2,12 +2,13 @@ import  {Component} from 'react'
 import {Link} from 'react-router-dom'
 import Icon from '../Assets/Images/a-logo.png';
 import Cart from '../Assets/Images/Empty Cart.png'
-import {Query} from "@apollo/react-components"
-import {gql} from '@apollo/client';
-import Styles from '../Assets/Styles/Header.module.scss';
+
+import Styles from '../Assets/Styles/Header.module.css';
 import {connect} from 'react-redux';
 import {changeValue} from '../Store/Actions/selectActions';
-
+import Overlay from '../Components/Overlay/Overlay';
+import withRouter from './WithRouter';
+import Select from './Select';
 
 function mapDispatchToProps(dispatch) {
     return {
@@ -18,77 +19,64 @@ function mapDispatchToProps(dispatch) {
 
 const mapStateToProps = state => {
     return {
-        value: state.selects.value,
+        
         carts:state.cartItem.numberCart
     }
 }
 
-
+   
 
 class Header extends Component {
 
 
+     state = {
+        isOpen: false,
+        
+    }
+
+    toggleOverlay = () => {
+        this.setState({isOpen: !this.state.isOpen})
+        
+    }
+
+    
+
+  
+
  render() {
 
     
-        const GET_CURRENCIES = gql`
-        query allcurrency {
-
-            currencies {
-              label,
-              symbol
-            }
-            
-          }
-        `;
-
+    
         
         return (
             <div className={Styles.container}>
             <nav>
                 <ul className={Styles.navigation}>
-                    <li><Link to="/"> ALL</Link></li>
-                    <li><Link to="/cloth">CLOTHES</Link></li>
-                    <li><Link to="/tech">TECH</Link></li>
+                    <li className={`${this.props.router.location.pathname === "/" ? Styles.isActive : ""}`}><Link to="/" style={{ color: this.props.router.location.pathname === "/" ? "#5ECE7B" : ""}}> ALL</Link></li>
+                    <li className={`${this.props.router.location.pathname === "/cloth" ? Styles.isActive : ""}`}><Link to="/cloth" style={{ color: this.props.router.location.pathname === "/cloth" ? "#5ECE7B" : ""}}>CLOTHES</Link></li>
+                    <li className={`${this.props.router.location.pathname === "/tech" ? Styles.isActive : ""}`}><Link to="/tech" style={{ color: this.props.router.location.pathname === "/tech" ? "#5ECE7B" : ""}}>TECH</Link></li>
                 </ul>
             </nav>
             <div>
                 <figure>
                     <Link to="/">
-                    <img src={Icon} alt="icon" />
+                    <img src={Icon} alt="icon" className={Styles.Icon}/>
                     </Link>
                 </figure>
             </div>
+            
             <div className={Styles.dropdown}>
-            <section>
-                
-                <Query query={GET_CURRENCIES} >
-        {({ loading, error, data }) => {
-        if (loading) return "Loading...";
-        if (error) return `Error!! ${error.message}`;
-        
-       
-        return (
-        <select  value={this.props.value}  onChange={(e) => this.props.changeValue(e.target.value)}>
-                {data.currencies.map(option => (
-                    <option value={option.symbol} key={option.label}>{option.symbol} </option>
-                ))}
-        </select>
-                
-                    
-        );
-      }}
-        </Query>
-       
-
-            </section>
+            
+            <div className={Styles.select}>
+            <Select />
+                </div>
             <div>
-            <Link to="/cart">
+            
                 <figure className={Styles.img}>
-                    <span><img src={Cart} alt="cart"/> cart:{this.props.carts}</span> 
-                    
-                </figure> 
-                </Link>
+                    <span onClick={this.toggleOverlay}><img src={Cart} alt="cart" /> <span className={Styles.CartCount}>{this.props.carts}</span></span> 
+                <Overlay isOpen={this.state.isOpen} onClose={this.toggleOverlay}/>        
+                </figure>   
+                
             </div>
             </div>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </div>
@@ -96,4 +84,4 @@ class Header extends Component {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Header));

@@ -28,3 +28,21 @@
     src: url("./fonts/Raleway-Bold.woff2") format("woff2");
     font-weight: 700;
 }
+
+@font-face {
+    font-family: "Roboto Condensed";
+    src: url("./fonts/Roboto-Condensed-Bold.woff") format("woff2");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("./fonts/roboto-v30-latin-regular.woff2") format("woff2");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Source Sans Pro";
+    src: url("./fonts/SourceSansPro-Regular.woff2") format("woff2");
+    font-weight: 400;
+}
