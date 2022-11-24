@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import {addToCart} from '../Store/Actions/cartActions'
 import Styles from '../Assets/Styles/Product.module.css'
 import Spinner from "./Overlay/Spinner"
-import 'animate.css' 
+
 
 class Product extends Component {
 

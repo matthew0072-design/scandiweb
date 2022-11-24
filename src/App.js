@@ -5,15 +5,15 @@ import {gql} from '@apollo/client';
 import Tech from './Components/Tech'
 import Cart from './Components/Cart'
 import Product from './Components/Product';
-import withRouter from './Layouts/WithRouter'
-
+import withRouter from './Layouts/WithRouter';
+import './app.css';
 import {
   
   Routes,
   Route,
   
 } from "react-router-dom";
-import './app.css'
+
 
 class App extends Component {
 
@@ -63,7 +63,7 @@ class App extends Component {
     
 
     return (
-      <div className="">
+      <div>
         <Routes>
         
         <Route path="/" element={<Home CATEGORIES={CATEGORIES} variables={{"input":{"title":"all"}}}/>}/>
