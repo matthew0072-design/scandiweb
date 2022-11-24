@@ -17,7 +17,7 @@ export const GET_STATUS = gql`
 `
 
 export  const client = new ApolloClient({
-    uri: 'http://localhost:4000',
+    uri:  'https://jealous-deer-suspenders.cyclic.app',
     connectToDevTools:true,
     cache: new InMemoryCache({
       typePolicies:{
