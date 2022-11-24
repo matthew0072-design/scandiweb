@@ -6,7 +6,7 @@ import Tech from './Components/Tech'
 import Cart from './Components/Cart'
 import Product from './Components/Product';
 import withRouter from './Layouts/WithRouter';
-import './app.css';
+import './App.css';
 import {
   
   Routes,
