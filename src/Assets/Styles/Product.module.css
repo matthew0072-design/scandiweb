@@ -2,6 +2,7 @@
     box-sizing: border-box;
     display: flex;
     justify-content: space-around;
+    align-items: center;
     padding: 0;
     margin: 0;
     width: 100%
