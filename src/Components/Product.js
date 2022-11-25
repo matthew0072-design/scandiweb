@@ -50,7 +50,7 @@ handleImageIndex = (index) => {
                             <div className={Styles.imageGallery}>
                                 {data.product.gallery.map((productItem, index) => { 
                                 
-                               return(
+                               return (
                                     
                                         <img src={productItem} key={index} alt={productItem.name} className={Styles.image} onClick={() => this.handleImageIndex(index)}/>
                                     
@@ -59,6 +59,9 @@ handleImageIndex = (index) => {
                                 
                             </div>
                                     <section >
+                                    </section>
+                                    <section >
+                                        <img src={data.product.gallery[this.state.imageIndex]} alt="" className={Styles.displayImage} />
                                     </section>
                             <div className={Styles.productDetails}>
                             <p className={Styles.productName}>{data.product.name}</p>
